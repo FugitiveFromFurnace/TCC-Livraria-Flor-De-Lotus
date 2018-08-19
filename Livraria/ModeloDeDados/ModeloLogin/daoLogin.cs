@@ -27,7 +27,6 @@ namespace Livraria.ModeloDeDados.ModeloLogin {
 
                 dados = cmd.ExecuteReader();
                 if (dados.Read())
-                    if (dados["loginFunc"].ToString() == func.loginFunc && dados["senhaFunc"].ToString() == func.senhaFunc)
                         resultado = 1;
 
                 return resultado;

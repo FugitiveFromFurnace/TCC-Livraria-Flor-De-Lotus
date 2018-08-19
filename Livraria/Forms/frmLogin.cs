@@ -26,7 +26,7 @@ namespace Livraria {
                 this.Hide();
                 new frmInicio().Show();
             }
-            catch (LoginException erro) {
+            catch (MinhaException erro) {
                 MessageBox.Show(erro.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

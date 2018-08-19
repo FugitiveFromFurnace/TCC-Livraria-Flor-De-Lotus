@@ -64,9 +64,12 @@
     <Compile Include="ModeloDeDados\ModeloLogin\bllLogin.cs" />
     <Compile Include="ModeloDeDados\ModeloLogin\daoLogin.cs" />
     <Compile Include="ModeloDeDados\Funcionario.cs" />
-    <Compile Include="ModeloDeDados\ModeloLogin\LoginException.cs" />
+    <Compile Include="MinhaException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,11 +8,11 @@ namespace Livraria.ModeloDeDados.ModeloLogin {
     class bllLogin {
         internal void logar(Funcionario func) {
             if(func.loginFunc == "" || func.senhaFunc == "") {
-                throw new LoginException("Preencha todos os campos");
+                throw new MinhaException("Preencha todos os campos");
             }
             int resultado = new daoLogin().log(func);
             if (resultado == 0) {
-                throw new LoginException("Login ou senha inválidos");
+                throw new MinhaException("Login ou senha inválidos");
             }
         }
     }
