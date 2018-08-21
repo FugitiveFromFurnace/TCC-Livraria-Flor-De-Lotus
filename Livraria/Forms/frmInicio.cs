@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Livraria.UCs;
 
 namespace Livraria.Forms {
     public partial class frmInicio : Form {
@@ -14,32 +15,20 @@ namespace Livraria.Forms {
             InitializeComponent();
         }
 
-        //design
-        private void btnSlideMenu_Click(object sender, EventArgs e) {
-            if (panelMenu.Height == 760 & panelMenu.Width == 294) {
-                panelMenu.Width = 64;
-                btnSlideMenu.Left = 8;
-            }
-            else {
-                panelMenu.Width = 294;
-                btnSlideMenu.Left = 245;                
-            }
-        }
-
         //principal
-        private void btnCaixa_Click(object sender, EventArgs e) {
+        private void btnCaixa_Click(object sender, EventArgs e) {         
             panelSlideBar.Height = btnCaixa.Height;
             panelSlideBar.Top = btnCaixa.Top;
             lblTitulo.Text = "Caixa";
         }
 
-        private void btnRanking_Click(object sender, EventArgs e) {
+        private void btnRanking_Click(object sender, EventArgs e) {            
             panelSlideBar.Height = btnRanking.Height;
             panelSlideBar.Top = btnRanking.Top;
             lblTitulo.Text = "Ranking de Vendas";
         }
 
-        private void btnFunc_Click(object sender, EventArgs e) {
+        private void btnFunc_Click(object sender, EventArgs e) {           
             panelSlideBar.Height = btnFunc.Height;
             panelSlideBar.Top = btnFunc.Top;
             lblTitulo.Text = "Funcionários";
@@ -55,6 +44,8 @@ namespace Livraria.Forms {
             panelSlideBar.Height = btnLivros.Height;
             panelSlideBar.Top = btnLivros.Top;
             lblTitulo.Text = "Livros";
+            livroUC1.BringToFront();
+            
         }
 
         private void btnGanhos_Click(object sender, EventArgs e) {
