@@ -20,7 +20,7 @@ namespace Livraria.ModeloDeDados.ModeloLogin {
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
-                cmd.CommandText = "select loginFunc, senhaFunc from funcionario where loginFunc = @loginFunc and senhaFunc = @senhaFunc";
+                cmd.CommandText = "select loginFuncionario, senhaFuncionario from funcionario where loginFuncionario = @loginFunc and senhaFuncionario = @senhaFunc";
                 cmd.Parameters.AddWithValue("@loginFunc", func.loginFunc);
                 cmd.Parameters.AddWithValue("@senhaFunc", func.senhaFunc);
                 cmd.Connection = con;
