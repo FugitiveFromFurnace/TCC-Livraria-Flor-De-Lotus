@@ -1,0 +1,34 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prc_Vender`(IN `pedidoID` INT, IN `vendedorID` INT, IN `total` DECIMAL(10,2), IN `vezesPag` INT)
+begin
+		
+    declare codigoLivro int;     
+	declare quantidade int;
+	declare done int default false;
+    declare cont int;
+    
+    declare selecionarLivros cursor
+			for select idLivroPedido, qtdePedido from pedido where idPedido = pedidoID;
+	
+    declare continue handler for not found set done = true;
+    
+    set cont = vezesPag;
+    
+		open selecionarLivros;
+        lupin : loop			
+			fetch selecionarLivros into codigoLivro, quantidade;		
+			if done then
+				leave lupin;
+			end if;
+            
+            if cont = 0 then leave lupin; end if;
+            
+            update livros set qtdeLivro = qtdeLivro - quantidade where idLivro = codigoLivro;
+            
+            insert into venda(pedidoVenda, idFunc, dataVenda, valorTotal) value(pedidoID, vendedorID, date(now() ), total);
+            set cont = cont + 1;
+            
+        end Loop lupin;
+        close selecionarLivros;
+                
+        update pedido set pedidoFinalizado = 1 where idPedido = pedidoID;
+    end

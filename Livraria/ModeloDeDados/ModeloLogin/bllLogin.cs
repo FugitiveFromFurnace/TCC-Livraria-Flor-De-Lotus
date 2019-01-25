@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace Livraria.ModeloDeDados.ModeloLogin {
     class bllLogin {
+
+        internal IList<string> pegarImagens() {
+            return new daoLogin().pegarImagens();
+        }
+
         internal void logar(Funcionario func) {
-            if(func.loginFunc == "" || func.senhaFunc == "") {
+            if (func.loginFunc == "" || func.senhaFunc == "") {
                 throw new MinhaException("Preencha todos os campos");
             }
-            int resultado = new daoLogin().log(func);
-            if (resultado == 0) {
-                throw new MinhaException("Login ou senha inválidos");
-            }
+
+            new daoLogin().log(func);
         }
     }
 }

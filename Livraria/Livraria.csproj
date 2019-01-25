@@ -33,12 +33,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\LivrariaFlorDeLotus\LivrariaFlorDeLotus\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,18 +61,74 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\frmAltLivro.cs">
+    <Compile Include="Forms\frmBuscaLivroReservado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAltLivro.Designer.cs">
-      <DependentUpon>frmAltLivro.cs</DependentUpon>
+    <Compile Include="Forms\frmBuscaLivroReservado.Designer.cs">
+      <DependentUpon>frmBuscaLivroReservado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCadLivro.cs">
+    <Compile Include="Forms\frmClienteVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCadLivro.Designer.cs">
+    <Compile Include="Forms\frmClienteVenda.Designer.cs">
+      <DependentUpon>frmClienteVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFinalizarVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFinalizarVenda.Designer.cs">
+      <DependentUpon>frmFinalizarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMensagens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMensagens.Designer.cs">
+      <DependentUpon>frmMensagens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNotificacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNotificacao.Designer.cs">
+      <DependentUpon>frmNotificacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResponderMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResponderMsg.Designer.cs">
+      <DependentUpon>frmResponderMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\func\frmCadFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\func\frmCadFunc.Designer.cs">
+      <DependentUpon>frmCadFunc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\livros\frmAddEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\livros\frmAddEstoque.Designer.cs">
+      <DependentUpon>frmAddEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\livros\frmCadSecundarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\livros\frmCadSecundarios.Designer.cs">
+      <DependentUpon>frmCadSecundarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDados\Conexao.cs" />
+    <Compile Include="ModeloDeDados\Contato.cs" />
+    <Compile Include="ModeloDeDados\Grafico.cs" />
+    <Compile Include="MaisVendidos.cs" />
+    <Compile Include="ModeloDeDados\Autor.cs" />
+    <Compile Include="ModeloDeDados\Categoria.cs" />
+    <Compile Include="Forms\livros\frmCadLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\livros\frmCadLivro.Designer.cs">
       <DependentUpon>frmCadLivro.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmInicio.cs">
@@ -73,23 +143,89 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModeloDeDados\Livro.cs" />
+    <Compile Include="ModeloDeDados\ModeloAuxiliar\bllAux.cs" />
+    <Compile Include="ModeloDeDados\ModeloAuxiliar\daoAux.cs" />
+    <Compile Include="ModeloDeDados\ModeloFunc\bllFunc.cs" />
+    <Compile Include="ModeloDeDados\ModeloFunc\daoFunc.cs" />
+    <Compile Include="ModeloDeDados\Funcionario.cs" />
+    <Compile Include="ModeloDeDados\ModeloLivro\bllLivro.cs" />
+    <Compile Include="ModeloDeDados\ModeloLivro\daoLivro.cs" />
     <Compile Include="ModeloDeDados\ModeloLogin\bllLogin.cs" />
     <Compile Include="ModeloDeDados\ModeloLogin\daoLogin.cs" />
-    <Compile Include="ModeloDeDados\Funcionario.cs" />
     <Compile Include="MinhaException.cs" />
+    <Compile Include="ModeloDeDados\ModeloVenda\bllVenda.cs" />
+    <Compile Include="ModeloDeDados\ModeloVenda\daoVenda.cs" />
+    <Compile Include="ModeloDeDados\Pedido.cs" />
+    <Compile Include="ModeloDeDados\Venda.cs" />
+    <Compile Include="notificacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCs\CaixaUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\CaixaUC.Designer.cs">
+      <DependentUpon>CaixaUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\FuncUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\FuncUC.Designer.cs">
+      <DependentUpon>FuncUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\GanhosUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\GanhosUC.Designer.cs">
+      <DependentUpon>GanhosUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCs\HomeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\HomeUC.Designer.cs">
+      <DependentUpon>HomeUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCs\LivroUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCs\LivroUC.Designer.cs">
       <DependentUpon>LivroUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\frmAltLivro.resx">
-      <DependentUpon>frmAltLivro.cs</DependentUpon>
+    <Compile Include="UCs\RankingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCs\RankingUC.Designer.cs">
+      <DependentUpon>RankingUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmBuscaLivroReservado.resx">
+      <DependentUpon>frmBuscaLivroReservado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCadLivro.resx">
+    <EmbeddedResource Include="Forms\frmClienteVenda.resx">
+      <DependentUpon>frmClienteVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFinalizarVenda.resx">
+      <DependentUpon>frmFinalizarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMensagens.resx">
+      <DependentUpon>frmMensagens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNotificacao.resx">
+      <DependentUpon>frmNotificacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResponderMsg.resx">
+      <DependentUpon>frmResponderMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\func\frmCadFunc.resx">
+      <DependentUpon>frmCadFunc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\livros\frmAddEstoque.resx">
+      <DependentUpon>frmAddEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\livros\frmCadLivro.resx">
       <DependentUpon>frmCadLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\livros\frmCadSecundarios.resx">
+      <DependentUpon>frmCadSecundarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
@@ -107,9 +243,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCs\CaixaUC.resx">
+      <DependentUpon>CaixaUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\FuncUC.resx">
+      <DependentUpon>FuncUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\GanhosUC.resx">
+      <DependentUpon>GanhosUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCs\HomeUC.resx">
+      <DependentUpon>HomeUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCs\LivroUC.resx">
       <DependentUpon>LivroUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCs\RankingUC.resx">
+      <DependentUpon>RankingUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,7 +314,96 @@
   <ItemGroup>
     <None Include="Resources\go_back_30px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logo-com-nome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inspection_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back Arrow_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xbox X_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right Arrow_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home Page_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pricing_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Literature_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money Bag_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pricing_30px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Discount_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expand Arrow_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chevron Up_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chevron Down_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Invisible_15px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OCR_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Secured Letter_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Secured Letter_30px1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
